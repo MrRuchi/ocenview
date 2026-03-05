@@ -24,6 +24,7 @@ jobs:
       - name: Build with Maven
         run: |
           cd oceanview
+          chmod +x mvnw
           ./mvnw clean compile -DskipTests
 
   frontend-build:
