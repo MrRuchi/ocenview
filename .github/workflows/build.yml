@@ -40,12 +40,8 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies
+      - name: Install dependencies and build
         run: |
           cd ocean-view-frontend
-          npm install
-
-      - name: Build frontend
-        run: |
-          cd ocean-view-frontend
-          npm run build
+          npm ci
+          npx vite build
