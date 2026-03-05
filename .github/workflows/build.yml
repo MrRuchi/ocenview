@@ -40,8 +40,16 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies and build
+      - name: Install dependencies
         run: |
           cd ocean-view-frontend
           npm ci
+
+      - name: Fix vite permissions
+        run: chmod +x node_modules/.bin/vite
+        working-directory: ocean-view-frontend
+
+      - name: Build frontend
+        run: |
+          cd ocean-view-frontend
           npx vite build
